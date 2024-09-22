@@ -1,0 +1,38 @@
+﻿@model List<Category>
+
+<div class="container">
+	<div class="row pt-4 pb-3">		@* Bootstrap行(row)類別，用來包裹列(col)，實現響應式布局；pt(padding-top)；pb(padding-bottom)*@
+		<div class="col-6">
+			<h2 class="text-primary">
+				Category List
+			</h2>
+		</div>
+		<div class="col-6 text-end">
+			<a asp-controller="Category" asp-action="Create" class="btn btn-primary">		@* 創建一個連結，指向到CategoryController的CreateMethod，型態為Btn *@
+				<i class="bi bi-plus-circle"></i> Create New	
+			</a>
+		</div>
+	</div>
+	<table class="table table-bordered table-striped">
+		<thead>
+			@* 讓表格額外在套一層表格結構，使表格看起來更具結構性 *@
+			<tr>
+				<th>
+					Category Name
+				</th>
+				<th>
+					Display Order
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.OrderBy(d => d.DisplayOrder))
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.DisplayOrder</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

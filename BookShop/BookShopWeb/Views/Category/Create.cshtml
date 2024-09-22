@@ -1,0 +1,27 @@
+﻿@model Category
+
+<form method="post">
+	@* 表單標籤，method="post"指定了表單提交的方式為POST，表示數據會被發送到伺服器處理 *@
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<div class="text-primary">Create Category</div>
+			<hr />
+		</div>
+		<div class="mb-3 row p-1">
+			<label asp-for="Name" class="p-0" />
+			<input asp-for="Name" class="form-control" />
+		</div>
+		<div class="mb-3 row p-1">
+			<label asp-for="DisplayOrder" class="p-0" />
+			<input asp-for="DisplayOrder" class="form-control" />
+		</div>
+		<div class="row">
+			<div class="col-6 col-md-3">
+				<button type="submit" class="btn btn-primary form-control">Create</button>
+			</div>
+			<div class="col-6 col-md-3">
+				<a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">Back to List</a>
+			</div>
+		</div>
+	</div>
+</form>
