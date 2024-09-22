@@ -9,47 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookShopWeb
 build_property.RootNamespace = BookShopWeb
-build_property.ProjectDir = F:\WPF\E-CommerceApp\BookShop\BookShopWeb\
+build_property.ProjectDir = F:\WPF\E-Commerce\BookShop\BookShopWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\WPF\E-CommerceApp\BookShop\BookShopWeb
+build_property.MSBuildProjectDirectory = F:\WPF\E-Commerce\BookShop\BookShopWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Category/Create.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Category/Index.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Home/Index.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Home/Privacy.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Shared/Error.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/_ViewImports.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/_ViewStart.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/WPF/E-CommerceApp/BookShop/BookShopWeb/Views/Shared/_Layout.cshtml]
+[F:/WPF/E-Commerce/BookShop/BookShopWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bs837csr2b

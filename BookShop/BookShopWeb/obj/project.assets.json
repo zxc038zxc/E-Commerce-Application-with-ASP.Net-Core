@@ -4112,11 +4112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\WPF\\E-CommerceApp\\BookShop\\BookShopWeb\\BookShopWeb.csproj",
+      "projectUniqueName": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\BookShopWeb.csproj",
       "projectName": "BookShopWeb",
-      "projectPath": "F:\\WPF\\E-CommerceApp\\BookShop\\BookShopWeb\\BookShopWeb.csproj",
+      "projectPath": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\BookShopWeb.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\WPF\\E-CommerceApp\\BookShop\\BookShopWeb\\obj\\",
+      "outputPath": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
