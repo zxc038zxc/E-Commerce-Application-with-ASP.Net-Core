@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BookShopRazor_Temp.props" />
+</Project>

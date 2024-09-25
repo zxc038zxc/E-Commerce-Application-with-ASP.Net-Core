@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BookShopRazor_Temp/1.0.0": {
+        "runtime": {
+          "BookShopRazor_Temp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BookShopRazor_Temp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

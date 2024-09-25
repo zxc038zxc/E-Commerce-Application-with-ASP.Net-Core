@@ -1,0 +1,60 @@
+﻿@model List<Category>
+
+@* 使用Bootstrap的卡片樣式，將內容包裝成一個獨立的區塊；加上Shadow陰影；移除Border邊框；上邊距4 *@
+<div class="card shadow border-0 mt-4">
+	@* 這是卡片標題部分，通常放置標題或操作按鈕；bg-secondary表示使用次要色背景；bg-gradient背景漸層；ml-0左側外邊距0避免內縮 *@
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+
+				<div class="text-white py-2">Category List</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-4">
+			@* Bootstrap行(row)類別，用來包裹列(col)，實現響應式布局；pt(padding-top)；pb(padding-bottom)*@
+			<div class="col-6">
+			</div>
+			<div class="col-6 text-end">
+				<a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+					@* 創建一個連結，指向到CategoryController的CreateMethod，型態為Btn *@
+					<i class="bi bi-plus-circle"></i> Create New
+				</a>
+			</div>
+		</div>
+		<table class="table table-bordered table-striped">
+			<thead>
+				@* 讓表格額外在套一層表格結構，使表格看起來更具結構性 *@
+				<tr>
+					<th>
+						Category Name
+					</th>
+					<th>
+						Display Order
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.OrderBy(d => d.DisplayOrder))
+				{
+					<tr>
+						<td>@item.Name</td>
+						<td>@item.DisplayOrder</td>
+						<td>
+							<div class="w-75 btn-group" role="group">
+								<a asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+									<i class="bi bi-pencil-square"></i> Edit
+								</a>
+								<a asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">
+									<i class="bi bi-trash-fill"></i> Delete
+								</a>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
