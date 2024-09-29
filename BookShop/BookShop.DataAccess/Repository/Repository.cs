@@ -25,16 +25,34 @@ namespace BookShop.DataAccess.Repository
 			_dbSet.Add(entity);
 		}
 
-		public T Get(Expression<Func<T, bool>> filter)
+		public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
 		{
 			IQueryable<T> query = _dbSet;
 			query= query.Where(filter);
+
+			if (!string.IsNullOrEmpty(includeProperties))
+			{
+				var properties = includeProperties.Split(',', StringSplitOptions.RemoveEmptyEntries);
+				foreach (var property in properties)
+				{
+					query = query.Include(property);
+				}
+			}
 			return query.FirstOrDefault();
 		}
 
-		public IEnumerable<T> GetAll()
+		// Include的用法是EF的功能，類似於SQL的Inner Join
+		public IEnumerable<T> GetAll(string? includeProperties = null)
 		{
 			IQueryable<T> query = _dbSet;
+			if(!string.IsNullOrEmpty(includeProperties))
+			{
+				var properties = includeProperties.Split(',',StringSplitOptions.RemoveEmptyEntries);
+				foreach(var property in properties)
+				{
+					query = query.Include(property);
+				}
+			}
 			return query.ToList();
 		}
 

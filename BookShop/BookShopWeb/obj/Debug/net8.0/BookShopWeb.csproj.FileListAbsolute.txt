@@ -394,3 +394,4 @@ F:\WPF\E-Commerce\BookShop\BookShopWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\
 F:\WPF\E-Commerce\BookShop\BookShopWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 F:\WPF\E-Commerce\BookShop\BookShopWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 F:\WPF\E-Commerce\BookShop\BookShopWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+F:\WPF\E-Commerce\BookShop\BookShopWeb\obj\Debug\net8.0\BookShopWeb.MvcApplicationPartsAssemblyInfo.cs
