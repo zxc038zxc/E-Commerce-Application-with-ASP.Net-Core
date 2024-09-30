@@ -10,3 +10,4 @@ F:\WPF\E-Commerce\BookShop\BookShop.Utility\obj\Debug\net8.0\BookShop.Utility.dl
 F:\WPF\E-Commerce\BookShop\BookShop.Utility\obj\Debug\net8.0\refint\BookShop.Utility.dll
 F:\WPF\E-Commerce\BookShop\BookShop.Utility\obj\Debug\net8.0\BookShop.Utility.pdb
 F:\WPF\E-Commerce\BookShop\BookShop.Utility\obj\Debug\net8.0\ref\BookShop.Utility.dll
+F:\WPF\E-Commerce\BookShop\BookShop.Utility\obj\Debug\net8.0\BookShop.Utility.csproj.AssemblyReference.cache
