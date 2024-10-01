@@ -21,6 +21,16 @@
 						<span asp-validation-for="Input.Email" class="text-danger"></span>
 					</div>
 					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.Name" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.Name" class="ms-2 text-muted">Full Name</label>
+						<span asp-validation-for="Input.Name" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.PhoneNumber" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.PhoneNumber" class="ms-2 text-muted">Phone Number</label>
+						<span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
 						<input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
 						<label asp-for="Input.Password" class="ms-2 text-muted">Password</label>
 						<span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -31,8 +41,33 @@
 						<span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
 					</div>
 					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.StressAddress" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.StressAddress" class="ms-2 text-muted">Street Address</label>
+						<span asp-validation-for="Input.StressAddress" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.City" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.City" class="ms-2 text-muted">City</label>
+						<span asp-validation-for="Input.City" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.State" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.State" class="ms-2 text-muted">State</label>
+						<span asp-validation-for="Input.State" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<input asp-for="Input.PostalCode" class="form-control" placeholder="name@example.com" />
+						<label asp-for="Input.PostalCode" class="ms-2 text-muted">Postal Code</label>
+						<span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
 						<select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
 							<option disabled selected>-Select Role-</option>
+						</select>
+					</div>
+					<div class="form-floating mb-3 col-md-6">
+						<select asp-for="Input.CompanyId" asp-items="@Model.Input.CompanyList" class="form-select" style="display:none">
+							<option disabled selected>-Select Company-</option>
 						</select>
 					</div>
 					<div class="col-12">
@@ -47,27 +82,27 @@
 					@{
 						if ((Model.ExternalLogins?.Count ?? 0) == 0)
 						{
-							<div>
-								<p>
-									There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-										article
-										about setting up this ASP.NET application to support logging in via external services
-									</a>.
-								</p>
-							</div>
+										<div>
+											<p>
+												There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+													article
+													about setting up this ASP.NET application to support logging in via external services
+												</a>.
+											</p>
+										</div>
 						}
 						else
 						{
-							<form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-								<div>
-									<p>
-										@foreach (var provider in Model.ExternalLogins!)
+										<form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+											<div>
+												<p>
+													@foreach (var provider in Model.ExternalLogins!)
 										{
-											<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+														<button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
 										}
-									</p>
-								</div>
-							</form>
+												</p>
+											</div>
+										</form>
 						}
 					}
 				</section>
@@ -76,6 +111,27 @@
 	</div>
 </div>
 
+@* Asp.Net Razor頁面的一個區塊，用來插入腳本。 *@
+@* 通常用於將JavaScript放置在頁面的某區域，以優化頁面加載速度 *@
+@* section scripts用來告訴Razor在這個區塊中放置腳本代碼 *@
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />
+	<script>
+		// ↓jQuery的常用模式，表示當網頁完全加仔后執行其中的程式碼。
+		// 它確保腳本在DOM元素都已經加載完成後才開始執行，以避免出現找不到元素的問題
+		$(document).ready(function () {
+			// ↓綁定一個Change事件到 #Input_Role 元素，當使用者在該下拉選單選擇不同選項時，觸發這個事件
+			$('#Input_Role').change(function () {
+				// 取得下拉選的選擇的文本，並將其存儲到變數 Selection
+				var selection = $('#Input_Role Option:Selected').text();
+				if (selection == 'Company') {
+					// 顯示或隱藏 #Input_CompanyId 這個輸入欄位
+					$('#Input_CompanyId').show();
+				}
+				else{
+					$('#Input_CompanyId').hide();
+				}
+			})
+		})
+	</script>
 }

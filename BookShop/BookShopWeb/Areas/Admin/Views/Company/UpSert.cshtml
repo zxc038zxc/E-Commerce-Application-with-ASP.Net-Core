@@ -1,0 +1,104 @@
+﻿@model Company
+
+@* 使用Bootstrap的卡片樣式，將內容包裝成一個獨立的區塊；加上Shadow陰影；移除Border邊框；上邊距4 *@
+<div class="card shadow border-0 mt-4">
+	@* 這是卡片標題部分，通常放置標題或操作按鈕；bg-secondary表示使用次要色背景；bg-gradient背景漸層；ml-0左側外邊距0避免內縮 *@
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+
+				<div class="text-white py-2">@(Model.Id != 0 ? "Update" : "Create") Company</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		@* enctype="multipart/form-data" 是用來指定表單的編碼方式，如果需要上傳文件時就必須用它，它允許表單數據被分成多個部分 *@
+		<form method="post" class="row" asp-action="Upsert" enctype="multipart/form-data">
+			<input asp-for="Id" hidden />
+			@* 表單標籤，method="post"指定了表單提交的方式為POST，表示數據會被發送到伺服器處理 *@
+			<div class="row">
+				<div class="col-12">
+					<div class="border p-3">
+						@* <div asp-validation-summary="ModelOnly"></div> *@
+						<div class="form-floating py-2 col-12">
+							<input asp-for="Name" class="form-control border-0 shadow" />
+							<label asp-for="Name" class="ms-2"></label>
+							<span asp-validation-for="Name" class="text-danger"></span>		@* 顯示錯誤 *@
+						</div>
+						<div class="form-floating py-2 col-12">
+							<input asp-for="PhoneNumber" class="form-control border-0 shadow" />
+							<label asp-for="PhoneNumber" class="ms-2"></label>
+							<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+						</div>
+						<div class="form-floating py-2 col-12">
+							<input asp-for="StreetAddress" class="form-control border-0 shadow" />
+							<label asp-for="StreetAddress" class="ms-2"></label>
+							<span asp-validation-for="StreetAddress" class="text-danger"></span>
+						</div>
+						<div class="form-floating py-2 col-12">
+							<input asp-for="City" class="form-control border-0 shadow" />
+							<label asp-for="City" class="ms-2"></label>
+							<span asp-validation-for="City" class="text-danger"></span>
+						</div>
+						<div class="form-floating py-2 col-12">
+							<input asp-for="State" class="form-control border-0 shadow" />
+							<label asp-for="State" class="ms-2"></label>
+							<span asp-validation-for="State" class="text-danger"></span>
+						</div>
+						<div class="form-floating py-2 col-12">
+							<input asp-for="PostalCode" class="form-control border-0 shadow" />
+							<label asp-for="PostalCode" class="ms-2"></label>
+							<span asp-validation-for="PostalCode" class="text-danger"></span>
+						</div>					
+						<div class="row pt-2">
+							<div class="col-6 col-md-3">
+								@if (Model.Id != 0)
+								{
+									<button type="submit" class="btn btn-primary form-control">Update</button>
+								}
+								else
+								{
+									<button type="submit" class="btn btn-primary form-control">Create</button>
+								}
+							</div>
+							<div class="col-6 col-md-3">
+								<a asp-controller="Company" asp-action="Index" class="btn btn-outline-primary border form-control">Back to List</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+@* 引入客戶端驗證腳本，從而實現表單提交前的即時驗證，避免ㄧ些不必要的後端驗證請求 *@
+@* @section Scripts：專門用來放置JS的腳本， *@
+@* <partial name="_Validation...."：partial是Razor中的部分視圖，將指定名稱的視圖嵌入到當前視圖中 *@
+@* _ValidationScriptsPartial是Asp.NetCore中預設用來引入客戶端驗證腳本的部分視圖，處理客戶端表單驗證，從而減少伺服器負擔*@
+@section Scripts {
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			plugins: [
+				// Core editing features
+				'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'lists', 'table', 'visualblocks', 'wordcount',
+				// Your account includes a free trial of TinyMCE premium features
+				// Try the most popular premium features until Oct 12, 2024:
+				'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+			],
+			toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent',
+			tinycomments_mode: 'embedded',
+			tinycomments_author: 'Author name',
+			mergetags_list: [
+				{ value: 'First.Name', title: 'First Name' },
+				{ value: 'Email', title: 'Email' },
+			],
+			ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+		});
+	</script>
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

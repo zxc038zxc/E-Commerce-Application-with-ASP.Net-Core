@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\images\\product\\d74efd00-55c9-4d0d-8522-45e7aabc01ac.jpg"
     },
     {
+      "Id": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\company.js",
+      "PackagePath": "staticwebassets\\js\\company.js"
+    },
+    {
       "Id": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\newFile.js",
       "PackagePath": "staticwebassets\\js\\newFile.js"
     },

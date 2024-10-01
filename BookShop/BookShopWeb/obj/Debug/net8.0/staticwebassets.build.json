@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4bNpDuEIK4L1eD4U+aR4lGQtBobX489rZLU43JYniL8=",
+  "Hash": "IJPvixlXkMaX44cna3wDPLZxauyAGG6UtJmYdNPb1iA=",
   "Source": "BookShopWeb",
   "BasePath": "_content/BookShopWeb",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product\\d74efd00-55c9-4d0d-8522-45e7aabc01ac.jpg"
+    },
+    {
+      "Identity": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\company.js",
+      "SourceId": "BookShopWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\",
+      "BasePath": "_content/BookShopWeb",
+      "RelativePath": "js/company.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\company.js"
     },
     {
       "Identity": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\newFile.js",
