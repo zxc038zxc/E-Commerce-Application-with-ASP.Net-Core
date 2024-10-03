@@ -15,7 +15,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.5",
+          "Stripe.net": "46.0.0"
         },
         "runtime": {
           "BookShopWeb.dll": {}
@@ -1861,6 +1862,18 @@
           }
         }
       },
+      "Stripe.net/46.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Configuration.ConfigurationManager": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "46.0.0.0",
+            "fileVersion": "46.0.0.0"
+          }
+        }
+      },
       "System.CodeDom/5.0.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -3116,6 +3129,13 @@
       "sha512": "sha512-PQ2Oq3yepLY4P7ll145P3xtx2bX8xF4PzaKPRpw9jZlKvfe4LE/saAV82inND9usn1XRpmxXk7Lal3MTI+6CNg==",
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.6",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512"
+    },
+    "Stripe.net/46.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4Lf6HtG0RyJ2mIYhS3f1CmMKNpU/vPci11ZSQq8mR+i/zhtVH3wnwvIS8yRAJSNA5J/k1yEByBfclzrI2qoXIQ==",
+      "path": "stripe.net/46.0.0",
+      "hashPath": "stripe.net.46.0.0.nupkg.sha512"
     },
     "System.CodeDom/5.0.0": {
       "type": "package",
