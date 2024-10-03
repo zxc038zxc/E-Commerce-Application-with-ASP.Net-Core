@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\images\\book.png",
+      "PackagePath": "staticwebassets\\images\\book.png"
+    },
+    {
+      "Id": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\images\\lawn_leaf.jpg",
+      "PackagePath": "staticwebassets\\images\\lawn_leaf.jpg"
+    },
+    {
       "Id": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\images\\product\\4baebc2e-df74-4295-86d1-04caf3eef346.jpg",
       "PackagePath": "staticwebassets\\images\\product\\4baebc2e-df74-4295-86d1-04caf3eef346.jpg"
     },

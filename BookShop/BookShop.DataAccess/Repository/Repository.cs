@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BookShop.DataAccess.Repository
 {
@@ -15,20 +16,20 @@ namespace BookShop.DataAccess.Repository
 		private readonly ApplicationDbContext _dbContext;
 		internal DbSet<T> _dbSet;
 
-        public Repository(ApplicationDbContext db)
-        {
+		public Repository(ApplicationDbContext db)
+		{
 			_dbContext = db;
 			_dbSet = db.Set<T>();
-        }
-        public void Add(T entity)
+		}
+		public void Add(T entity)
 		{
 			_dbSet.Add(entity);
 		}
 
-		public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
+		public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
 		{
-			IQueryable<T> query = _dbSet;
-			query= query.Where(filter);
+			IQueryable<T> query = tracked ? _dbSet : _dbSet.AsNoTracking();
+			query = query.Where(filter);
 
 			if (!string.IsNullOrEmpty(includeProperties))
 			{
@@ -42,13 +43,18 @@ namespace BookShop.DataAccess.Repository
 		}
 
 		// Include的用法是EF的功能，類似於SQL的Inner Join
-		public IEnumerable<T> GetAll(string? includeProperties = null)
+		public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
 		{
 			IQueryable<T> query = _dbSet;
-			if(!string.IsNullOrEmpty(includeProperties))
+
+			if (filter != null)
 			{
-				var properties = includeProperties.Split(',',StringSplitOptions.RemoveEmptyEntries);
-				foreach(var property in properties)
+				query = query.Where(filter);
+			}
+			if (!string.IsNullOrEmpty(includeProperties))
+			{
+				var properties = includeProperties.Split(',', StringSplitOptions.RemoveEmptyEntries);
+				foreach (var property in properties)
 				{
 					query = query.Include(property);
 				}
