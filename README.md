@@ -4,12 +4,12 @@ E-Commerce Application with ASP.Net Core MVC / Entity Framework
 # Data Access Layer (DAL)
 ## Entity Framework 作為 ORM 與資料庫互動
 透過`Add-Migration`、`Update-Database`，進行資料庫操作
-![image](https://github.com/user-attachments/assets/04f62d14-bbc5-45f6-8ee7-9b15c7d874bf)
+![image](https://github.com/user-attachments/assets/6682b161-55e3-49b9-a5cf-7f24bfe77206)
 
 ## Repository Pattern
 將DAL封裝，將具體的資料庫存取實作隱藏於`Repository`
 使業務邏輯不直接依賴於資料庫的細節，便於後續修改或是替換資料庫
-![image](https://github.com/user-attachments/assets/bbea9571-a5cc-4574-aa86-2368f7386877)
+![image](https://github.com/user-attachments/assets/208e50a1-2df4-4ecf-9316-4ce57cb13198)
 
 IRepository
 ```csharp=
@@ -43,7 +43,31 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
 ## Unit Of Work Pattern
 通常與`Repository`一起使用
 當一個單位操作涉及多個資料表時，`Unit Of Work`可以確保這些操作全部成功或是錯誤時通知，避免數據不一致
+![image](https://github.com/user-attachments/assets/3487d615-cd41-47ec-9863-fec48ca1020d)
 
+---
+
+# Areas分區結構
+將不同的模塊或功能分隔開來。
+分為 Admin、Customer、Identity 等區域，這些區域代表應用程式中的不同功能或使用者角色。
+![image](https://github.com/user-attachments/assets/44a7dbce-c5a9-4cb0-9fbb-8a0ccadd51d9)
+
+`[Area]`：在各個Controller設定Area，模塊化應用程式
+`[Authorize]`：限制訪問權限，只有已經登入的用戶才能訪問
+![image](https://github.com/user-attachments/assets/bb7ac68f-5f6e-4d9c-bc0f-01d105fe3369)
+
+## Identity模組
+導入Identity，來實現用戶的身分驗證和授權系統，處理用戶註冊、登入、密碼重置等相關功能。
+
+### Register添加自己需要定義的用戶資料
+1. 於`Register InputModel` 添加 (Company屬性、Role屬性)，並且設為`SelectListItem`，提供下拉選單
+	![image](https://github.com/user-attachments/assets/d2a20744-d630-4e01-a5e3-c3210356a257)
+2. 於`Register OnGetAsync` 添加各類型，並初始化列表資料
+![image](https://github.com/user-attachments/assets/f5184299-e7a0-4db6-9251-93b5c6554261)
+
+實現動態生成角色資料和公司列表的功能，並將資料綁訂到`Razor Pages`中
+
+---
 # 導入JavaScript函式庫
 ## Toastr，搭配`TempData`優化通知介面
 用來處理使用者創建、刪除資料是否成功之訊息
