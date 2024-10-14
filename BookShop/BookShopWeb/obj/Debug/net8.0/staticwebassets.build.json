@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T189mOgCJ1XGM4S7xvupwGRxuJVBlwJvK/x9kbpMyMM=",
+  "Hash": "c5FJqpC1clb8g0YkXS52wABmhrTNNMo/ZlF79M2APe8=",
   "Source": "BookShopWeb",
   "BasePath": "_content/BookShopWeb",
   "Mode": "Default",
@@ -1385,12 +1385,12 @@
       "OriginalItemSpec": "wwwroot\\js\\company.js"
     },
     {
-      "Identity": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\newFile.js",
+      "Identity": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\order.js",
       "SourceId": "BookShopWeb",
       "SourceType": "Discovered",
       "ContentRoot": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\",
       "BasePath": "_content/BookShopWeb",
-      "RelativePath": "js/newFile.js",
+      "RelativePath": "js/order.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1401,7 +1401,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\newFile.js"
+      "OriginalItemSpec": "wwwroot\\js\\order.js"
     },
     {
       "Identity": "F:\\WPF\\E-Commerce\\BookShop\\BookShopWeb\\wwwroot\\js\\product.js",

@@ -4,7 +4,6 @@ using BookShop.Models.ViewModel;
 using BookShop.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Stripe.BillingPortal;
 using Stripe.Checkout;
 using System.Security.Claims;
 
@@ -113,15 +112,14 @@ namespace BookShopWeb.Areas.Customer.Controllers
 					Count = cart.Count,
 				};
 				_unitOfWork.OrderDetailRepo.Add(orderDetial);
+				_unitOfWork.Save();
 			}
-			_unitOfWork.Save();
-
 
 			if (user.CompanyId.GetValueOrDefault() == 0)
 			{
 				// 一般帳號
 				var domain = "https://localhost:7063/";
-				var options = new Stripe.Checkout.SessionCreateOptions
+				var options = new SessionCreateOptions
 				{
 					SuccessUrl = domain + $"customer/cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
 					CancelUrl = domain + "customer/cart/index",
@@ -147,8 +145,8 @@ namespace BookShopWeb.Areas.Customer.Controllers
 					options.LineItems.Add(sessionLineItem);
 				}
 
-				var service = new Stripe.Checkout.SessionService();
-				Stripe.Checkout.Session session = service.Create(options);
+				var service = new SessionService();
+				Session session = service.Create(options);
 
 				if (session == null || string.IsNullOrEmpty(session.Id))
 				{
@@ -165,7 +163,26 @@ namespace BookShopWeb.Areas.Customer.Controllers
 
 		public IActionResult OrderConfirmation(int id)
 		{
-			return View();
+			var orderHeader = _unitOfWork.OrderHeaderRepo.Get(u => u.Id == id, "ApplicationUser");
+			if(orderHeader.PaymentStatus!=SD.PaymentStatusDelayedPayment)
+			{
+				// Order by customer
+				var service = new SessionService();
+				Session session = service.Get(orderHeader.SessionId);
+
+				if(session.PaymentStatus.ToLower() == "paid")
+				{
+					_unitOfWork.OrderHeaderRepo.UpdateStripePaymentId(id, session.Id, session.PaymentIntentId);
+					_unitOfWork.OrderHeaderRepo.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
+					_unitOfWork.Save();
+				}
+			}
+
+			var shoppingCartList = _unitOfWork.ShoppingCartRepo.GetAll(u=>u.ApplicationUserId== orderHeader.ApplicationUserId).ToList();
+			_unitOfWork.ShoppingCartRepo.DeleteRange(shoppingCartList);
+			_unitOfWork.Save();
+
+			return View(id);
 		}
 
 		public IActionResult Plus(int cartId)
