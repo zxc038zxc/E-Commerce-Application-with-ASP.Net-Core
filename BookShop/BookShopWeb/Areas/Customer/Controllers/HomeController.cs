@@ -1,6 +1,8 @@
 using BookShop.DataAccess.Repository.IRepository;
 using BookShop.Models;
+using BookShop.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -20,8 +22,17 @@ namespace BookShopWeb.Areas.Customer.Controllers
         }
 
         public IActionResult Index()
-        {
-            var productList = _unitOfWork.ProductRepo.GetAll(includeProperties: "Category");
+		{
+			var claimsIdentity = (ClaimsIdentity)User.Identity;
+			var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if(claim != null)
+			{
+				HttpContext.Session.SetInt32(SD.SessionCart,
+					_unitOfWork.ShoppingCartRepo.GetAll(u => u.ApplicationUserId == claim.Value).Count());
+			}
+
+
+			var productList = _unitOfWork.ProductRepo.GetAll(includeProperties: "Category");
             return View(productList);
         }
 
@@ -51,15 +62,17 @@ namespace BookShopWeb.Areas.Customer.Controllers
 
                 // 下面這一行其實不用寫，因為EF在取得物件後會持續Track，所以依然會更動到值，但這樣就會造成有時候的麻煩
                 _unitOfWork.ShoppingCartRepo.Update(cartFromDb);
-            }
+				_unitOfWork.Save();
+			}
             else
 			{
 				_unitOfWork.ShoppingCartRepo.Add(cart);
+				_unitOfWork.Save();
+				HttpContext.Session.SetInt32(SD.SessionCart,
+					_unitOfWork.ShoppingCartRepo.GetAll(u => u.ApplicationUserId == userId).Count());
 			}
 
             TempData["success"] = "Cart updated successfully";
-
-			_unitOfWork.Save();
 			return RedirectToAction(nameof(Index));
         }
 

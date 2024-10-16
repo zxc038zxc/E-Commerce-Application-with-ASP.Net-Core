@@ -640,6 +640,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Facebook/8.0.10": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.8": {
         "type": "package",
         "compile": {
@@ -3922,6 +3938,21 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/8.0.10": {
+      "sha512": "5DfD0jmqYUEFSmIuZOLFm1QG5Oy55tp3vPaVOKaBs9aX270BONJjO6rXxNjZkDaHJ1GiGQMhCGoF2tK4zJedtA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/8.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.8.0.10.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.8": {
@@ -8536,6 +8567,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "BookShop.DataAccess >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 8.0.10",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.8",
       "Microsoft.EntityFrameworkCore >= 8.0.8",
@@ -8600,6 +8632,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[8.0.10, )"
+          },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.8, )"

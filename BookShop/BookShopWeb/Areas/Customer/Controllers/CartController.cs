@@ -176,6 +176,7 @@ namespace BookShopWeb.Areas.Customer.Controllers
 					_unitOfWork.OrderHeaderRepo.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
 					_unitOfWork.Save();
 				}
+				HttpContext.Session.Clear();
 			}
 
 			var shoppingCartList = _unitOfWork.ShoppingCartRepo.GetAll(u=>u.ApplicationUserId== orderHeader.ApplicationUserId).ToList();
@@ -191,6 +192,9 @@ namespace BookShopWeb.Areas.Customer.Controllers
 			cartFormDb.Count++;
 			_unitOfWork.ShoppingCartRepo.Update(cartFormDb);
 			_unitOfWork.Save();
+
+			HttpContext.Session.SetInt32(SD.SessionCart,
+				_unitOfWork.ShoppingCartRepo.GetAll(u => u.ApplicationUserId == cartFormDb.ApplicationUserId).Count());
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -208,6 +212,9 @@ namespace BookShopWeb.Areas.Customer.Controllers
 			}
 
 			_unitOfWork.Save();
+
+			HttpContext.Session.SetInt32(SD.SessionCart,
+				_unitOfWork.ShoppingCartRepo.GetAll(u => u.ApplicationUserId == cartFormDb.ApplicationUserId).Count());
 			return RedirectToAction(nameof(Index));
 		}
 
@@ -216,6 +223,9 @@ namespace BookShopWeb.Areas.Customer.Controllers
 			var cartFormDb = _unitOfWork.ShoppingCartRepo.Get(u => u.Id == cartId);
 			_unitOfWork.ShoppingCartRepo.Remove(cartFormDb);
 			_unitOfWork.Save();
+
+			HttpContext.Session.SetInt32(SD.SessionCart,
+				_unitOfWork.ShoppingCartRepo.GetAll(u => u.ApplicationUserId == cartFormDb.ApplicationUserId).Count());
 			return RedirectToAction(nameof(Index));
 		}
 
